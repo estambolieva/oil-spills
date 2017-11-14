@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['sankey']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'From');
+        data.addColumn('string', 'To');
+        data.addColumn('number', 'count');
+        data.addRows([
+          [ 'Corrosion', 'Operational (Amnesty)', 14 ],
+          [ 'Corrosion', 'Undetermined', 2 ],
+          [ 'Drilled hole', 'Operational (Amnesty)', 4 ],
+          [ 'Drilled hole', 'Undetermined', 20 ],
+          [ 'Equipment failure', 'Operational (Amnesty)', 57 ],
+          [ 'Equipment failure', 'Third party (theft)', 2 ],
+          ["Equipment failure", "Third party (undetermined)", 1], 
+          ["Equipment failure", "Undetermined", 1],
+          ["Hacksaw cut", "Operational (Amnesty)", 10],
+          ["Hacksaw cut", "Third party (undetermined)", 96],
+          ["Hacksaw cut", "Undetermined"  , 5],
+          ["Oil Theft", "Operational (Amnesty)", 11],
+          ["Oil Theft", "Third party (theft)", 391],
+          ["Oil Theft", "Third party (undetermined)", 3],
+          ["Oil Theft", "Undetermined", 4],
+          ["Operational", "Operational (Amnesty)", 152],
+          ["Operational", "Third party (accident)", 1],
+          ["Operational", "Third party (undetermined)", 4],
+          ["Operational", "Undetermined", 7],
+          ["Other (small count)", "Operational (Amnesty)", 7],
+          ["Other (small count)", "Third party (accident)", 2],
+          ["Other (small count)", "Third party (undetermined)", 1],
+          ["Other (small count)", "Undetermined", 8],
+          ["Sabotage", "Operational (Amnesty)", 2],
+          ["Sabotage", "Third party (theft)", 262],
+          ["Sabotage", "Third party (undetermined)", 104],
+          ["Sabotage", "Undetermined", 102],
+          ["Sabotage / Theft", "Operational (Amnesty)", 5],
+          ["Sabotage / Theft", "Third party (theft)", 115],
+          ["Sabotage / Theft", "Third party (undetermined)", 70],
+          ["Sabotage / Theft", "Undetermined", 37],
+          ["Use of explosive", "Operational (Amnesty)", 9],
+          ["Use of explosive", "Third party (theft)", 1],
+          ["Use of explosive", "Third party (undetermined)", 29],
+          ["Use of explosive", "Undetermined", 2],
+          ["Vandalization", "Operational (Amnesty)", 32],
+          ["Vandalization", "Third party (theft)", 1],
+          ["Vandalization", "Third party (undetermined)", 4],
+          ["Vandalization", "Undetermined", 7]
+        ]);
+
+        // Sets chart options.
+        var options = {
+          width: 1000,
+        };
+
+        // Instantiates and draws our chart, passing in some options.
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_basic'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+  <div>
+      <p align="left"> <b>Cause reported by the company v.s Cause reported y Amnesty Decoders mapping</b>
+      <br/><br/><br/><br/></p>
+      <div id="sankey_basic" style="width: 900px; height: 500px;"></div>
+      <p align="left" style="margin-left: 0px">Cause reported by the Company</p>
+      <p align="left" style="margin-left: 830px">Amnesty Decoders' Cause</p>
+    </div>
+  </body>
+</html>
