@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['sankey']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'From');
+        data.addColumn('string', 'To');
+        data.addColumn('number', 'count');
+        data.addRows([
+          [ "Cut or Crack", 'Equipment failure', 2],
+          [ "Cut or Crack", 'Hacksaw cut', 92],
+          [ "Cut or Crack", 'Oil theft', 2],
+          [ "Cut or Crack", 'Operational', 4],
+          ["Cut or Crack", "Sabotage", 98], 
+          ["Cut or Crack", "Sabotage / Theft", 68],
+          ["Fitting Added", "Equipment failure", 2],
+          ["Fitting Added", "Oil theft", 386],
+          ["Fitting Added", "Sabotage"  , 252],
+          ["Fitting Added", "Sabotage / Theft", 113],
+          ["Not Sure/Other", "Hacksaw cut", 10],
+          ["Not Sure/Other", "Equipment failure", 46],
+          ["Not Sure/Other", "Oil Theft", 12],
+          ["Not Sure/Other", "Operational", 109],
+          ["Not Sure/Other", "Sabotage", 160],
+          ["Not Sure/Other", "Sabotage / Theft", 18],
+          ["Not Sure/Other", "Use of explosive", 10],
+          ["Not Sure/Other", "Vandalization", 34],
+        ]);
+
+        // Sets chart options.
+        var options = {
+          width: 1000,
+        };
+
+        // Instantiates and draws our chart, passing in some options.
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_basic'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+  <div>
+      <p align="left"> <b>Hot v.s. cold Tapping</b>
+      <br/><br/><br/><br/></p>
+      <div id="sankey_basic" style="width: 900px; height: 500px;"></div>
+      <p align="left" style="margin-left: 0px">Decoder's classification of what they see on photo</p>
+      <p align="left" style="margin-left: 830px">Companies' Cause</p>
+      <p align="left" style="margin-left: 0px">*Note:* Pairs with value count less than 10 are mainly omitted from this graph</p>
+    </div>
+  </body>
+</html>
